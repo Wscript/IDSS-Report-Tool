@@ -25,7 +25,7 @@ namespace IDSS_Report_Tool
 
         private void formMain_Load (object sender, EventArgs e)
         {
-            if (VersionCheck("IDSSReportTool","2.00.20150313") == "Y")
+            if (VersionCheck("IDSSReportTool","2.00.20150317") == "Y")
             {
                 radioNonParameter.Checked = true;
                 this.AcceptButton = buttonExport;
@@ -253,6 +253,7 @@ namespace IDSS_Report_Tool
             }
 
             SqlDataAdapter daReportData = new SqlDataAdapter (sqlReportData, con);
+            daReportData.SelectCommand.CommandTimeout = 0;
 
             try
             {
